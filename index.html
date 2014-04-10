@@ -2,23 +2,69 @@
 <html lang="da">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>LarsChristiansen.dk</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>LarsChristiansen.dk</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <style>
+    #map {
+        width: 100%;
+        height: 500px;
+        margin-top: 20px;
+    }
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<h1>Lars og Birgittes Bryllup</h1>
-		<p><a href="http://tinusn.github.io/larschristiansen.dk/files/oenskeliste.pdf" class="btn btn-primary"><i class="fa fa-cloud-download fa-lg"></i> Hent ønskelisten</a></p>
-		<p><a href="http://tinusn.github.io/larschristiansen.dk/files/invitation.pdf" class="btn btn-info"><i class="fa fa-cloud-download fa-lg"></i> Hent invitationen</a></p>
-		<p><a href="https://maps.google.com/maps?saddr=Elbagade,+K%C3%B8benhavn,+Danmark&daddr=Ny+Kongensgade,+K%C3%B8benhavn,+Danmark&hl=da&ie=UTF8&sll=39.131874,-84.516284&sspn=0.011934,0.026157&geocode=FVs1UQMdA3jAACmZtPyTraxTRjF9Nn1TX8hDLQ%3BFc6CUQMdbuS_ACmjSWGDE1NSRjGGP-aDOw0BJw&oq=ny+kon&mra=ls&t=m&z=14" class="btn btn-success"><i class="fa fa-map-marker fa-lg"></i> Link til rutevejledning</a>
-	</div>
+    <div class="container">
+        <div class="text-center">
+            <h1>Lars og Birgittes Bryllup</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 text-center">
+                <a href="http://tinusn.github.io/larschristiansen.dk/files/oenskeliste.pdf" class="btn btn-primary"><i class="fa fa-cloud-download fa-lg"></i> Hent ønskelisten</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                <a href="http://tinusn.github.io/larschristiansen.dk/files/invitation.pdf" class="btn btn-info"><i class="fa fa-cloud-download fa-lg"></i> Hent invitationen</a>
+            </div>
+            <div class="col-xs-4 text-center">
+                <a href="https://www.google.dk/maps/dir/N%C3%B8rg%C3%A5rdsvej+15,+8940+Randers+SV/Frisenvoldvej+3B,+8870+Lang%C3%A5/@56.4034043,9.9631163,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x464c04ca24236df5:0xfb177cfca85e6d4f!2m2!1d9.989597!2d56.404546!1m5!1m1!1s0x464c04eed901a07f:0x5aba80269766e176!2m2!1d9.953325!2d56.401065!3e2" class="btn btn-success"><i class="fa fa-map-marker fa-lg"></i> Link til rutevejledning</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDXd3qOrQXQhWXn4XS-hmQRcMS-tVFlbW8&sensor=false"></script>
+    <script>
+    var center = new google.maps.LatLng(56.401187, 9.953293);
+
+    var mapOptions = {
+        center: center,
+        zoom: 13,
+        streetViewControl: false
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map,
+        title: 'Ørum Kirke - Frisenvoldvej 3B, Jebjerg, 8870 Langå'
+    });
+
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(56.404709, 9.989576),
+        map: map,
+        title: 'Værum kirke - Nørgårdsvej 15, Værum, 8940 Randers SV'
+    });
+    </script>
 </body>
 
 </html>
